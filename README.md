@@ -119,7 +119,7 @@ Edit [config/launch_params.yaml](wcr_launcher/config/launch_params.yaml) to modi
 ### Controller Selection
 
 Choose the appropriate ros2_control configuration in your URDF by including the desired xacro file:
-- For testing/simulation: `mock_wcr_classic.ros2_control.xacro`
+- For testing/simulation: `mock_wcr_classic.ros2_control.xacro` (use [config/launch_params.yaml](wcr_launcher/config/launch_params.yaml): `variant: "mock"`)
 
 ## 📚 Additional Resources
 
