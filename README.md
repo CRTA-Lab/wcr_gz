@@ -25,41 +25,14 @@ Robot description package containing URDF/Xacro models and visualization configu
 ### `wcr_controllers`
 [Custom controller implementations](https://github.com/BCaran/wcr_controllers) for trajectory tracking and motion control.
 
-**Controllers:**
-- **Model-Based Controllers:**
-  - `model_based_controller.cpp` - Full model-based trajectory follower
-  - `model_based_controller_velocity.cpp` - Velocity-based model controller
-  - `reduced_model_based_controller_velocity.cpp` - Simplified model controller
-- **Torque Controllers:**
-  - `torque_model_based_controller.cpp` - Torque-based control
-  - `simple_torque_model_based_controller.cpp` - Simplified torque control
-- **Inverse Kinematics:**
-  - `inv_kin_controller.cpp` - Inverse kinematics solver
-- **Utilities:**
-  - `trajectory_generator.cpp` - Path and trajectory generation
-  - `mimic_help_controller.cpp` - Helper for mimic joints
-
 ### `wcr_control`
 ROS2 control configuration and controller management.
-
-**Features:**
-- Controller manager configuration
-- ros2_control parameter files
-- Integration with ros2_controllers
-- Joint state broadcaster setup
-- Forward command controller configuration
 
 **Launch Files:**
 - `controller.launch.py` - Start controller manager and load controllers
 
 ### `wcr_odometry`
 [Odometry estimation node](https://github.com/BCaran/wcr_odometry) for robot state feedback.
-
-**Features:**
-- Wheel odometry calculation
-- Robot pose estimation
-- TF publishing
-- Sensor fusion (if applicable)
 
 ### `wcr_launcher`
 Unified launch package for starting the complete robot system.
@@ -138,12 +111,14 @@ Edit [config/robot_params.yaml](wcr_launcher/config/robot_params.yaml) to modify
 - Inertia parameters
 - Propeller and EDF configurations
 
+Edit [config/launch_params.yaml](wcr_launcher/config/launch_params.yaml) to modify:
+- World
+- URDF files
+- Control variants
+
 ### Controller Selection
 
 Choose the appropriate ros2_control configuration in your URDF by including the desired xacro file:
-- For position/velocity: `wcr_classic.ros2_control.xacro`
-- For pure velocity: `wcr_velocity.ros2_control.xacro`
-- For torque control: `wcr_effort.ros2_control.xacro`
 - For testing/simulation: `mock_wcr_classic.ros2_control.xacro`
 
 ## 📚 Additional Resources
