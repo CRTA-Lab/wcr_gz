@@ -61,13 +61,13 @@
           <angular_velocity>
               <noise type="gaussian">
                   <mean>0.0</mean>
-                  <stddev>0.01</stddev>
+                  <stddev>0.001</stddev>
               </noise>
           </angular_velocity>
           <linear_acceleration>
               <noise type="gaussian">
                   <mean>0.0</mean>
-                  <stddev>0.1</stddev>
+                  <stddev>0.01</stddev>
               </noise>
           </linear_acceleration>
       </imu>
@@ -82,7 +82,7 @@
       <always_on>true</always_on>
       <topic>camera</topic>
       <visualize>true</visualize>
-      <camera name="head">
+      <camera name="t265">
         <horizontal_fov>1.3962634</horizontal_fov>
         <image>
           <width>800</width>
@@ -99,10 +99,58 @@
                That pixel's noise value is added to each of its color
                channels, which at that point lie in the range [0,1]. -->
           <mean>0.0</mean>
-          <stddev>0.007</stddev>
+          <stddev>0.0005</stddev>
         </noise>
       </camera>
       <gz_frame_id>t265_link</gz_frame_id>
+    </sensor>
+  </gazebo>
+  <gazebo reference="barometer_link">
+    <sensor name="barometer_sensor" type="air_pressure">
+      <update_rate>25</update_rate>
+      <always_on>true</always_on>
+      <topic>pressure</topic>
+      <visualize>false</visualize>
+      <air_pressure>
+        <reference_altitude>0</reference_altitude>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>10.0</stddev>
+        </noise>
+      </air_pressure>
+      <plugin filename="libignition-gazebo-air-pressure-system.so" name="ignition::gazebo::systems::AirPressure">
+      </plugin>
+      <gz_frame_id>barometer_link</gz_frame_id>
+    </sensor>
+  </gazebo>
+  <gazebo reference="distance_sensor_link">
+    <sensor name="distance_sensor" type="gpu_lidar">
+      <update_rate>20</update_rate>
+      <always_on>true</always_on>
+      <topic>distance</topic>
+      <visualize>true</visualize>
+      <lidar>
+        <scan>
+          <horizontal>
+            <samples>1</samples>
+            <resolution>1</resolution>
+            <min_angle>0</min_angle>
+            <max_angle>0</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.05</min>
+          <max>5.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.0005</stddev>
+        </noise>
+      </lidar>
+      <gz_frame_id>distance_sensor_link</gz_frame_id>
     </sensor>
   </gazebo>
 </robot>

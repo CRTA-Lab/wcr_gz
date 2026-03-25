@@ -41,6 +41,17 @@
             <mass value="0.05"/>
             <!-- inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/ -->
         </inertial>
+    </link>
+
+    <!-- BAROMETER LINK -->
+
+    <joint name="barometer_joint" type="fixed">
+        <parent link="chassis_link"/>
+        <child link="barometer_link"/>
+        <origin xyz="0.06 0 0.1"/>
+    </joint>
+
+    <link name="barometer_link">
     </link> 
 
     <!-- T265 LINK -->
@@ -77,6 +88,17 @@
 
 
     <link name="marvelmind_link">
+    </link>
+
+    <!-- DISTANCE SENSOR LINK -->
+
+    <joint name="distance_sensor_joint" type="fixed">
+        <parent link="chassis_link"/>
+        <child link="distance_sensor_link"/>
+        <origin xyz="0.16 0.0 0.05" rpy="0 ${pi/2} 0"/>
+    </joint>
+
+    <link name="distance_sensor_link">
     </link>
 
     <!-- CHASSIS LINK-->
