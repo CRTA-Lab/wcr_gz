@@ -6,6 +6,79 @@ width: 0.225
 chassis_mass: 3.0
 chassis_inertia: 0.003
 
+# Sensor Mount Poses (m, rad)
+imu_x: 0.06551
+imu_y: 0.0
+imu_z: 0.098
+imu_roll: 0.0
+imu_pitch: 0.0
+imu_yaw: 0.0
+
+camera_x: 0.14885
+camera_y: 0.00922
+camera_z: 0.06659
+camera_roll: 0.0
+camera_pitch: 0.0
+camera_yaw: 0.0
+
+optical_flow_x: 0.06
+optical_flow_y: 0.0
+optical_flow_z: 0.095
+optical_flow_roll: 0.0
+optical_flow_pitch: 1.57079632679
+optical_flow_yaw: 0.0
+
+barometer_x: 0.06
+barometer_y: 0.0
+barometer_z: 0.1
+barometer_roll: 0.0
+barometer_pitch: 0.0
+barometer_yaw: 0.0
+
+distance_sensor_x: 0.16
+distance_sensor_y: 0.0
+distance_sensor_z: 0.05
+distance_sensor_roll: 0.0
+distance_sensor_pitch: 1.57079632679
+distance_sensor_yaw: 0.0
+
+# Sensor Rates (Hz)
+imu_rate_hz: 100.0
+camera_rate_hz: 30.0
+optical_flow_rate_hz: 50.0
+barometer_rate_hz: 25.0
+distance_rate_hz: 20.0
+
+# Sensor Noise (stddev)
+imu_gyro_stddev: 0.001
+imu_accel_stddev: 0.01
+camera_noise_stddev: 0.0005
+optical_flow_noise_stddev: 0.0005
+barometer_noise_stddev: 10.0
+distance_noise_stddev: 0.0005
+
+# Camera / Optical Flow Optics
+camera_width: 800
+camera_height: 800
+camera_hfov: 1.3962634
+optical_flow_width: 320
+optical_flow_height: 240
+optical_flow_hfov: 1.3962634
+
+# Distance Sensor Limits
+distance_min_m: 0.05
+distance_max_m: 5.0
+distance_resolution_m: 0.01
+
+# Barometer
+barometer_reference_altitude: 0.0
+
+# Thruster / Environment
+air_density: 1.225
+thruster_coefficient: 0.1
+propeller_diameter_main: 0.2286
+propeller_diameter_edf: 0.11
+
 # Steering System
 steering_height: 0.05029
 steering_mass: 0.1

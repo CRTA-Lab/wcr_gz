@@ -79,6 +79,14 @@ class LauncherConfigurator:
     @property
     def use_controllers(self):
         return self.get_launch_param('controller', True)
+
+    @property
+    def rviz(self):
+        return self.get_launch_param('rviz', True)
+
+    @property
+    def rviz_config(self):
+        return self.get_launch_param('rviz_config', 'wcr_sensors.rviz')
     
     @property
     def world_file(self):
@@ -87,6 +95,18 @@ class LauncherConfigurator:
     @property
     def spawn_z_height(self):
         return self.get_launch_param('spawn_z_height', 0.2)
+
+    @property
+    def spawn_x(self):
+        return self.get_launch_param('spawn_x', 0.0)
+
+    @property
+    def spawn_y(self):
+        return self.get_launch_param('spawn_y', 0.0)
+
+    @property
+    def spawn_yaw(self):
+        return self.get_launch_param('spawn_yaw', 0.0)
     
     @property
     def gz_args(self):

@@ -31,7 +31,7 @@
     <joint name="imu_joint" type="fixed">
         <parent link="chassis_link"/>
         <child link="imu_link"/>
-        <origin xyz="0.06551 0 0.098"/>
+        <origin xyz="${imu_x} ${imu_y} ${imu_z}" rpy="${imu_roll} ${imu_pitch} ${imu_yaw}"/>
     </joint> 
 
 
@@ -48,7 +48,7 @@
     <joint name="barometer_joint" type="fixed">
         <parent link="chassis_link"/>
         <child link="barometer_link"/>
-        <origin xyz="0.06 0 0.1"/>
+        <origin xyz="${barometer_x} ${barometer_y} ${barometer_z}" rpy="${barometer_roll} ${barometer_pitch} ${barometer_yaw}"/>
     </joint>
 
     <link name="barometer_link">
@@ -59,11 +59,22 @@
     <joint name="camera_joint" type="fixed">
         <parent link="chassis_link"/>
         <child link="t265_link"/>
-        <origin xyz="0.14885 0.00922 0.06659"/>
+        <origin xyz="${camera_x} ${camera_y} ${camera_z}" rpy="${camera_roll} ${camera_pitch} ${camera_yaw}"/>
     </joint>
 
 
     <link name="t265_link">
+    </link>
+
+    <!-- OPTICAL FLOW LINK -->
+
+    <joint name="optical_flow_joint" type="fixed">
+        <parent link="chassis_link"/>
+        <child link="optical_flow_link"/>
+        <origin xyz="${optical_flow_x} ${optical_flow_y} ${optical_flow_z}" rpy="${optical_flow_roll} ${optical_flow_pitch} ${optical_flow_yaw}"/>
+    </joint>
+
+    <link name="optical_flow_link">
     </link>
 
     <!-- T265 ODOM -->
@@ -71,7 +82,7 @@
     <joint name="camera_odom_joint" type="fixed">
         <parent link="chassis_link"/>
         <child link="t265_odom_frame"/>
-        <origin xyz="0.14885 0.00922 0.06659"/>
+        <origin xyz="${camera_x} ${camera_y} ${camera_z}" rpy="${camera_roll} ${camera_pitch} ${camera_yaw}"/>
     </joint>
 
 
@@ -95,7 +106,7 @@
     <joint name="distance_sensor_joint" type="fixed">
         <parent link="chassis_link"/>
         <child link="distance_sensor_link"/>
-        <origin xyz="0.16 0.0 0.05" rpy="0 ${pi/2} 0"/>
+        <origin xyz="${distance_sensor_x} ${distance_sensor_y} ${distance_sensor_z}" rpy="${distance_sensor_roll} ${distance_sensor_pitch} ${distance_sensor_yaw}"/>
     </joint>
 
     <link name="distance_sensor_link">

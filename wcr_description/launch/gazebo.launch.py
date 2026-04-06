@@ -18,6 +18,9 @@ def generate_launch_description():
     config = LauncherConfigurator()
     namespace = config.namespace
     world_file = config.world_file
+    spawn_x = config.spawn_x
+    spawn_y = config.spawn_y
+    spawn_yaw = config.spawn_yaw
     spawn_z_height = config.spawn_z_height
     gz_args = config.gz_args
     
@@ -45,6 +48,9 @@ def generate_launch_description():
         arguments=[
             '-topic', f'/{namespace}/robot_description',
             '-name', namespace,
+            '-x', str(spawn_x),
+            '-y', str(spawn_y),
+            '-Y', str(spawn_yaw),
             '-z', str(spawn_z_height)
         ],
     )

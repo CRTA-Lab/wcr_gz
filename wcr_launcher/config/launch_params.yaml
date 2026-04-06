@@ -6,14 +6,17 @@ sim: true
 # Robot variant (classic/effort/velocity/mimic/mix/mock)
 variant: "mock"
 namespace: "wcr"
-controller: true
-propeller_control: false
+rviz: true
+rviz_config: "wcr_sensors.rviz"
 
 # URDF file
 urdf_file: "wcr.urdf.xacro"
 
 # Gazebo settings
 use_sim_time: true
+spawn_x: 0.0
+spawn_y: 0.0
+spawn_yaw: 0.0
 spawn_z_height: 0.2
 gz_args: "-r -v4"
 

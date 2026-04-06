@@ -55,7 +55,7 @@
     <sensor name="imu_sensor" type="imu">
       <update_rate>100</update_rate>
       <always_on>true</always_on>
-      <topic>imu</topic>
+      <topic>/$(arg namespace)/imu</topic>
       <visualize>true</visualize>
       <imu>
           <angular_velocity>
@@ -80,7 +80,7 @@
     <sensor type="camera" name="t265_camera">
       <update_rate>30.0</update_rate>
       <always_on>true</always_on>
-      <topic>camera</topic>
+      <topic>/$(arg namespace)/camera</topic>
       <visualize>true</visualize>
       <camera name="t265">
         <horizontal_fov>1.3962634</horizontal_fov>
@@ -105,11 +105,37 @@
       <gz_frame_id>t265_link</gz_frame_id>
     </sensor>
   </gazebo>
+  <gazebo reference="optical_flow_link">
+    <sensor type="camera" name="optical_flow_camera">
+      <update_rate>50.0</update_rate>
+      <always_on>true</always_on>
+      <topic>/$(arg namespace)/optical_flow/image_raw</topic>
+      <visualize>false</visualize>
+      <camera name="optical_flow">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>320</width>
+          <height>240</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>100</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.0005</stddev>
+        </noise>
+      </camera>
+      <gz_frame_id>optical_flow_link</gz_frame_id>
+    </sensor>
+  </gazebo>
   <gazebo reference="barometer_link">
     <sensor name="barometer_sensor" type="air_pressure">
       <update_rate>25</update_rate>
       <always_on>true</always_on>
-      <topic>pressure</topic>
+      <topic>/$(arg namespace)/pressure</topic>
       <visualize>false</visualize>
       <air_pressure>
         <reference_altitude>0</reference_altitude>
@@ -128,7 +154,7 @@
     <sensor name="distance_sensor" type="gpu_lidar">
       <update_rate>20</update_rate>
       <always_on>true</always_on>
-      <topic>distance</topic>
+      <topic>/$(arg namespace)/distance</topic>
       <visualize>true</visualize>
       <lidar>
         <scan>

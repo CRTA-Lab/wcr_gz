@@ -14,6 +14,7 @@ def generate_launch_description():
     pkg_share = get_package_share_path('wcr_description')
     controller_share = get_package_share_path('wcr_control')
     config = LauncherConfigurator()
+    rviz_config_path = os.path.join(pkg_share, 'rviz', config.rviz_config)
 
     # Robot State Publisher (CENTRAL)
     robot_state_publisher = Node(
@@ -41,8 +42,7 @@ def generate_launch_description():
     control_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(controller_share, 'launch', 'controller.launch.py')
-        ),
-        condition=IfCondition(str(config.use_controllers).lower())
+        )
     )
 
     controller_launch = Node(
@@ -73,11 +73,23 @@ def generate_launch_description():
         }],
     )
 
+    rviz_node = Node(
+        package="rviz2",
+        executable="rviz2",
+        name="rviz2",
+        namespace=config.namespace,
+        output="screen",
+        arguments=['-d', rviz_config_path],
+        parameters=[{'use_sim_time': config.use_sim_time}],
+        condition=IfCondition(str(config.rviz).lower())
+    )
+
     return LaunchDescription([
         robot_state_publisher,
         gazebo_launch,
         control_launch,
         controller_launch,
         rosbridge_server,
-        odometry
+        odometry,
+        rviz_node
     ])
