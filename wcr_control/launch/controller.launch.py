@@ -40,8 +40,16 @@ def generate_launch_description():
         arguments=["driving_velocity_controller", "--controller-manager", controller_manager_name],
     )
 
+    propeller_effort_controller_node = Node(
+        package="controller_manager",
+        executable="spawner",
+        namespace=namespace,
+        arguments=["propeller_effort_controller", "--controller-manager", controller_manager_name],
+    )
+
     return LaunchDescription([
         joint_state_broadcaster_node,
         steering_position_controller_node,
         driving_velocity_controller_node,
+        propeller_effort_controller_node,
     ])

@@ -17,6 +17,10 @@ def generate_launch_description():
     # Extract launch parameters with defaults
     config = LauncherConfigurator()
     namespace = config.namespace
+    #edf_thrust_coefficient = config.thrust_coefficient_edf
+    #propeller_thrust_coefficient = config.thrust_coefficient_propeller
+    #edf_max_thrust_cmd = config.max_thrust_cmd_edf
+    #propeller_max_thrust_cmd = config.max_thrust_cmd_propeller
     world_file = config.world_file
     spawn_x = config.spawn_x
     spawn_y = config.spawn_y

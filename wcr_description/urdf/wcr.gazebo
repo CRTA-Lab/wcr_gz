@@ -13,42 +13,47 @@
     <plugin filename="ignition-gazebo-thruster-system" name="ignition::gazebo::systems::Thruster">
       <namespace>$(arg namespace)</namespace>
       <joint_name>EDF_propeller_joint</joint_name>
-      <thrust_coefficient>0.1</thrust_coefficient>
+      <thrust_coefficient>$(arg thrust_coefficient_edf)</thrust_coefficient>
       <fluid_density>1.225</fluid_density>
-      <propeller_diameter>0.11</propeller_diameter>
+      <propeller_diameter>0.069</propeller_diameter>
       <velocity_control>true</velocity_control>
+      <max_thrust_cmd>$(arg max_thrust_cmd_edf)</max_thrust_cmd>
     </plugin>
     <plugin filename="ignition-gazebo-thruster-system" name="ignition::gazebo::systems::Thruster">
       <namespace>$(arg namespace)</namespace>
       <joint_name>FL_propeller_joint</joint_name>
-      <thrust_coefficient>0.1</thrust_coefficient>
+      <thrust_coefficient>$(arg thrust_coefficient_propeller)</thrust_coefficient>
       <fluid_density>1.225</fluid_density>
       <propeller_diameter>0.2286</propeller_diameter>
       <velocity_control>true</velocity_control>
+      <max_thrust_cmd>$(arg max_thrust_cmd_propeller)</max_thrust_cmd>
     </plugin>
     <plugin filename="ignition-gazebo-thruster-system" name="ignition::gazebo::systems::Thruster">
       <namespace>$(arg namespace)</namespace>
       <joint_name>FR_propeller_joint</joint_name>
-      <thrust_coefficient>0.1</thrust_coefficient>
+      <thrust_coefficient>$(arg thrust_coefficient_propeller)</thrust_coefficient>
       <fluid_density>1.225</fluid_density>
       <propeller_diameter>0.2286</propeller_diameter>
       <velocity_control>true</velocity_control>
+      <max_thrust_cmd>$(arg max_thrust_cmd_propeller)</max_thrust_cmd>
     </plugin>
     <plugin filename="ignition-gazebo-thruster-system" name="ignition::gazebo::systems::Thruster">
       <namespace>$(arg namespace)</namespace>
       <joint_name>BL_propeller_joint</joint_name>
-      <thrust_coefficient>0.1</thrust_coefficient>
+      <thrust_coefficient>$(arg thrust_coefficient_propeller)</thrust_coefficient>
       <fluid_density>1.225</fluid_density>
       <propeller_diameter>0.2286</propeller_diameter>
       <velocity_control>true</velocity_control>
+      <max_thrust_cmd>$(arg max_thrust_cmd_propeller)</max_thrust_cmd>
     </plugin>
     <plugin filename="ignition-gazebo-thruster-system" name="ignition::gazebo::systems::Thruster">
       <namespace>$(arg namespace)</namespace>
       <joint_name>BR_propeller_joint</joint_name>
-      <thrust_coefficient>0.1</thrust_coefficient>
+      <thrust_coefficient>$(arg thrust_coefficient_propeller)</thrust_coefficient>
       <fluid_density>1.225</fluid_density>
       <propeller_diameter>0.2286</propeller_diameter>
       <velocity_control>true</velocity_control>
+      <max_thrust_cmd>$(arg max_thrust_cmd_propeller)</max_thrust_cmd>
     </plugin>
   </gazebo>
   <gazebo reference="imu_link">

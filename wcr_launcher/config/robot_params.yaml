@@ -101,20 +101,25 @@ prop_y: 0.18981
 prop_height: 0.09991
 prop_mass: 0.015
 prop_effort: 1.0
-prop_velocity: 1000.0
+prop_velocity: 2800.0
 prop_limit_upper: -1e16
 prop_limit_lower: 1e16
 prop_i_xy: 0.0001
 prop_i_z: 0.0002
+max_thrust_cmd_propeller: 2800
+thrust_coefficient_propeller: 0.89
+
 
 # EDF System
 edf_mass: 0.1
 edf_effort: 100.0
-edf_velocity: 1000.0
+edf_velocity: 4500.0
 edf_limit_upper: -1e16
 edf_limit_lower: 1e16
 edf_i_xy: 0.001
 edf_i_z: 0.002
+max_thrust_cmd_edf: 4500
+thrust_coefficient_edf: 1.25
 
 # Testing/Default Values
 default_inertia: 0.001
